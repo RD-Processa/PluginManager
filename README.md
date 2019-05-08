@@ -99,7 +99,14 @@ CorrelationalId | Valor de identificador único adjunto al correo electrónico q
 
 El proceso de instalación de un plugin validará la existencia de estos dos archivos en el archivo zip, validará el formato del manifiesto contra el esquema XSD que se especifique en el parámetro SchemaPath de la función Install-Plugin y copiará el archivo script a una ruta local para su posterior uso. 
 
-Para conocer los plugin registrados puede utilizar la función `Get-Plugin`.
+### Instalación y registro del plugin
+Ejemplo:
+```powershell
+Install-Plugin -Path 'X:\RutaArchivoZip\Aplicacion.zip' -SchemaPath 'X:\RutaArchivoEsquema\PromailSchema.xsd' -ManifestName 'Manifest.xml' -RootName 'promail'
+```
+
+
+Para conocer los plugins registrados puede utilizar la función `Get-Plugin`.
 
 `Get-Plugin` admite el uso del parámetro `Name`, así que para obtener la ruta de acceso de un script registrado previamente con `Install-Plugin`, bastaría con conocer el nombre del plugin y utilizarlo como parámetro en `Get-Plugin`. El objeto de retorno tendrá una propiedad con el nombre `FilePath` que corresponde con la ruta de acceso del archivo script de PowerShell. 
 
